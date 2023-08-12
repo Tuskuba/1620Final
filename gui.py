@@ -57,31 +57,38 @@ class Gui:
             cookieTotal = float(self.inputCookie.get())*1.50
             waterTotal = float(self.inputWater.get())*1.00
             finalTotal = sandTotal+cookieTotal+waterTotal
+
+            self.frameSandTot = Frame(self.window)
+            self.labelSandTot = Label(self.frameSandTot, text=f'Sandwich total = ${sandTotal:.2f}')
+
+            self.labelSandTot.pack(side='left')
+            self.frameSandTot.pack(padx=5, pady=5, side='left')
+
+            self.frameWatTot = Frame(self.window)
+            self.labelWatTot = Label(self.frameWatTot, text=f'Water total = ${waterTotal:.2f}')
+
+            self.labelWatTot.pack(side='left')
+            self.frameWatTot.pack(padx=5, pady=10, side='left')
+
+            self.frameCookieTot = Frame(self.window)
+            self.labelCookieTot = Label(self.frameSandTot, text=f'Cookie total = ${cookieTotal:.2f}')
+
+            self.labelCookieTot.pack(side='left')
+            self.frameCookieTot.pack(padx=5, pady=15, side='left')
+
+            self.frameTot = Frame(self.window)
+            self.labelTot = Label(self.frameTot, text=f'Final total = ${finalTotal:.2f}')
+
+            self.labelTot.pack(side='left')
+            self.frameTot.pack(padx=5, pady=20, side='left')
+
         except:
-            self.buttonLabel(text="Enter correct values.(they must be ints)")
-        self.frameSandTot = Frame(self.window)
-        self.labelSandTot = Label(self.frameSandTot, text=f'Sandwich total = ${sandTotal:.2f}')
+            self.buttonLabel.destroy()
+            self.errorFrame = Frame(self.window)
+            self.errorLabel = Label(text='Please enter valid information(must enter ints)')
 
-        self.labelSandTot.pack(side='left')
-        self.frameSandTot.pack(padx=5, pady=5, side='left')
-
-        self.frameWatTot = Frame(self.window)
-        self.labelWatTot = Label(self.frameWatTot, text=f'Water total = ${waterTotal:.2f}')
-
-        self.labelWatTot.pack(side='left')
-        self.frameWatTot.pack(padx=5, pady=10, side='left')
-
-        self.frameCookieTot = Frame(self.window)
-        self.labelCookieTot = Label(self.frameSandTot, text=f'Cookie total = ${cookieTotal:.2f}')
-
-        self.labelCookieTot.pack(side='left')
-        self.frameCookieTot.pack(padx=5, pady=15, side='left')
-
-        self.frameTot = Frame(self.window)
-        self.labelTot = Label(self.frameTot, text=f'Final total = ${finalTotal:.2f}')
-
-        self.labelTot.pack(side='left')
-        self.frameTot.pack(padx=5, pady=20, side='left')
+            self.errorLabel.pack()
+            self.errorFrame.pack()
 
 
     def clear(self):
@@ -92,3 +99,4 @@ class Gui:
         self.frameSandTot.destroy()
         self.frameWatTot.destroy()
         self.frameCookieTot.destroy()
+        self.errorFrame.destroy()
