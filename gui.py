@@ -92,11 +92,29 @@ class Gui:
 
 
     def clear(self):
+        """
+        a function that clears the screen for a new order
+        """
         self.inputWater.delete(0,END)
         self.inputCookie.delete(0, END)
         self.inputSand.delete(0, END)
-        self.frameTot.destroy()
-        self.frameSandTot.destroy()
-        self.frameWatTot.destroy()
-        self.frameCookieTot.destroy()
-        self.errorFrame.destroy()
+        try:
+            self.frameTot.destroy()
+        except:
+            pass
+        try:
+            self.frameSandTot.destroy()
+        except:
+            pass
+        try:
+            self.frameWatTot.destroy()
+        except:
+            pass
+        try:
+            self.frameCookieTot.destroy()
+        except:
+            pass
+        try:
+            self.errorFrame.destroy()
+        except:
+            pass
